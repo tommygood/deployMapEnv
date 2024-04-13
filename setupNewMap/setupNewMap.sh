@@ -83,8 +83,11 @@ echo -e "\ncurrent pm2 list"
 sudo pm2 list
 
 # activate kafka conusmer
+sleep_time=10
+echo -e "\nsleep ${sleep_time} sec to wait the socket of nodejs ready"
+sleep ${sleep_time}
 echo -e "\n activate kafka consumer"
-sudo python3 kafkaConnection.py -u $organ_abbre
+sudo python3 kafkaConnection.py -u ${organ_region}_${organ_abbre}
 
 # check whether the map site can receive message which sending from mosquitto server
 echo -e "\nuse the command below to check whether the map site can receive message which sending from mosquitto server : "
