@@ -81,3 +81,11 @@ cd $repo_path
 sudo pm2 start npm --name "${organ_region}_${organ_abbre}" -i 1 -- start # start with cluster mode and with one app
 echo -e "\ncurrent pm2 list"
 sudo pm2 list
+
+# activate kafka conusmer
+echo -e "\n activate kafka consumer"
+sudo python3 kafkaConnection.py -u $organ_abbre
+
+# check whether the map site can receive message which sending from mosquitto server
+echo -e "\nuse the command below to check whether the map site can receive message which sending from mosquitto server : "
+echo -e "mosquitto_pub -h ${mqtt_ip} -t ${organ_region}.${organ_abbre}/room1 -m '24.0757333333333,120.717493333333,測試外送員,40,63ff3Nk1TZDBSdXEweVBJMHRkYTBpYjkwWXJDNGNTbjZLazY,0' -p ${mqtt_port}"

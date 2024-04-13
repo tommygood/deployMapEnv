@@ -57,3 +57,7 @@ sudo systemctl enable redis
 sudo yum install mariadb-server -y
 sudo systemctl enable mariadb
 sudo systemctl start mariadb
+
+# install pip3 and relative python packages
+sudo yum -y install python3-pip
+sudo pip3 install kafka-python python-socketio python-socketio[client] python-daemon mysql-connector geopy redis
