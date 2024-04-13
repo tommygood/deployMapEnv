@@ -1,6 +1,7 @@
 #!/bin/bash
 
-'''
+# this script is used for installing and setting the necessary utils about map system
+
 # yum utils
 sudo yum install -y yum-utils
 sudo yum install -y gcc-c++ make git curl
@@ -15,28 +16,44 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-
 # docker install
 echo "install docker"
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum install -y docker-ce docker-ce-cli containerd.io
 sudo systemctl enable docker
 sudo systemctl start docker
-'''
+
+# create /var/www to place repo if it does not exist"
+if [ ! -d /var/www ]; then
+    sudo mkdir /var/www
+fi
 
 # clone repo
 username="tommygood"
 echo "start git clone the repo"
-git clone https://github.com/$username/deployMapEnv.git /var/www/
+git clone https://github.com/$username/deployMapEnv.git /var/www/deployMapEnv
 
 # activate services of docker-compose.yml with daemon mode
 echo "docker-compose up in daemon mode"
-sudo docker-compose up -d
+sudo docker-compose -f /var/www/deployMapEnv/docker-compose.yml up -d
 
-'''
 # MQTT
 sudo yum install -y epel-release
 sudo yum install mosquitto -y
 sudo systemctl start mosquitto
 sudo systemctl enable mosquitto
-'''
+sudo cp /var/www/deployMapEnv/mosquitto.conf /etc/mosquitto/mosquitto.conf # overwrite config of mosquitto
+sudo systemctl restart mosquitto
+sudo firewall-cmd --permanent --add-port=1883/tcp # open 1883 port to make others can access mosquitto server 
+sudo firewall-cmd --reload
+
+# redis
+sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-9.rpm # change the num of release-[num] with different version of epel-release(use sudo yum repolist to check version)
+sudo yum -y --enablerepo=remi install redis
+sudo systemctl start redis
+sudo systemctl enable redis
+
+# mariadb
+sudo yum install mariadb-server -y
+sudo systemctl enable mariadb
+sudo systemctl start mariadb

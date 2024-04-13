@@ -1,0 +1,38 @@
+{
+    "port": "map_port",
+    "redis": {
+        "ip" : "127.0.0.1",
+        "port" : "6379"
+     },
+    "kafka": {
+        "ip" : "127.0.0.1",
+        "port" : "9092"
+     },
+    "mqtt": {
+        "ip" : "127.0.0.1",
+        "port" : "1883"
+     },
+    "db" : {
+        "ip" : "localhost",
+        "port" : "3306",
+        "user" : "im_meal",
+        "password" : "meal@delivery",
+        "database" : "organ_region_organ_abbre"
+    },
+    "manage_system" : {
+        "host" : "https://organ_region.organ_abbre.cms.elderlymeal.com",
+        "gps_url" : "/api/app/account/save_web_gps",
+        "punch_url" : "/api/app/dp/save_web_punch"
+    },
+    "organization" : {
+        "name" : "organ_name"
+    },
+    "telegram" : {
+        "bot_token" : "6261510862:AAEHbnjlKupEgKMSn6umI2ARTLNxwUSxnCo",
+        "admin_id" : "1697361994"
+    },
+    "location" : {  
+        "lat" : "organ_lat",
+	"lon" : "organ_lon"
+    }   
+}

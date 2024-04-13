@@ -1,0 +1,13 @@
+{
+    "name": "organ_region.organ_abbre2",
+    "config": {
+        "connector.class": "io.confluent.connect.mqtt.MqttSourceConnector",
+        "tasks.max": 1,
+        "mqtt.server.uri": "tcp://mqtt_ip:mqtt_port",
+        "mqtt.topics": "organ_region.organ_abbre/room1",
+        "kafka.topic": "organ_region.organ_abbre-room1",
+        "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
+        "confluent.topic.bootstrap.servers": "broker:29092",
+        "confluent.topic.replication.factor": 1
+    }
+}
