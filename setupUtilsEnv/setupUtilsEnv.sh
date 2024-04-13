@@ -35,14 +35,14 @@ git clone https://github.com/$username/deployMapEnv.git /var/www/deployMapEnv
 
 # activate services of docker-compose.yml with daemon mode
 echo "docker-compose up in daemon mode"
-sudo docker-compose -f /var/www/deployMapEnv/docker-compose.yml up -d
+sudo docker-compose -f /var/www/deployMapEnv/setupUtilsEnv/docker-compose.yml up -d
 
 # MQTT
 sudo yum install -y epel-release
 sudo yum install mosquitto -y
 sudo systemctl start mosquitto
 sudo systemctl enable mosquitto
-sudo cp /var/www/deployMapEnv/mosquitto.conf /etc/mosquitto/mosquitto.conf # overwrite config of mosquitto
+sudo cp /var/www/deployMapEnv/setupUtilsEnv/mosquitto.conf /etc/mosquitto/mosquitto.conf # overwrite config of mosquitto
 sudo systemctl restart mosquitto
 sudo firewall-cmd --permanent --add-port=1883/tcp # open 1883 port to make others can access mosquitto server 
 sudo firewall-cmd --reload
