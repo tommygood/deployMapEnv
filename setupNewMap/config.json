@@ -26,13 +26,12 @@
     },
     "organization" : {
         "name" : "organ_name"
+        "lat" : "organ_lat",
+	"lon" : "organ_lon"
     },
     "telegram" : {
         "bot_token" : "6261510862:AAEHbnjlKupEgKMSn6umI2ARTLNxwUSxnCo",
         "admin_id" : "1697361994"
     },
-    "location" : {  
-        "lat" : "organ_lat",
-	"lon" : "organ_lon"
-    }   
+    "api_key" : "5e2a24aa629341a296fe14feaec1c1d5"   
 }
