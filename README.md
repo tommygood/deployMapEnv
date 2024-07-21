@@ -16,14 +16,14 @@
 1. `cd deployMapEnv/setupNewMap`
 2. `sudo bash setupNewMap.sh`
    - 需先輸入所需資訊
-   - ![image](https://github.com/tommygood/deployMapEnv/assets/96759292/6510fdff-5b36-4d37-bcd8-db19e7b0da84)
+   - ![image](https://github.com/user-attachments/assets/d1a62cde-0adc-45ad-a939-a13ec5da9322)
      - 機構名稱
      - 機構英文縮寫
      - 機構英文地區
      - 地圖網頁要開在的 port
      - 地圖網頁初始的緯度
      - 地圖網頁初始的經度
-     - mosquitto server 的 ip
+     - mosquitto server 的 ip (需確保 docker 的 `connect` container 可以透過此 ip 連線到 mosquitto server)
      - mosquitto server 的 port
      - github password which can clone the repo of FoodDelivery
 3. 建立完成後去存取剛剛輸入的 port 號
