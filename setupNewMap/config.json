@@ -25,7 +25,7 @@
         "punch_url" : "/api/app/dp/save_web_punch"
     },
     "organization" : {
-        "name" : "organ_name"
+        "name" : "organ_name",
         "lat" : "organ_lat",
 	"lon" : "organ_lon"
     },
