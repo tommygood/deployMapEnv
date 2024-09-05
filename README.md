@@ -34,4 +34,37 @@
        - ![image](https://github.com/user-attachments/assets/5f331768-4507-44f2-a121-0dd1773180c3)
      - go to the db and check gps data existed
        - ![image](https://github.com/user-attachments/assets/4e1e2dfc-a2f2-4f07-af7b-4c19c18e04ff)
-   
+### 設定 reverse proxy
+1. 確保安裝 nginx
+    - `sudo yum install nginx`
+    - `sudo systemctl enable nginx`
+    - `sudo systemctl start nginx`
+2. 確保安裝 certbot
+    - `sudo dnf install epel-release mod_ssl -y`
+    - `sudo dnf install certbot python3-certbot-apache -y`
+3. 設定 nginx conf
+    - `sudo vi /etc/nginx/conf.d/{name}.conf`
+
+        ```conf=
+        server {
+            server_name {domain_name};
+
+            location / {
+                proxy_pass http://127.0.0.1:{port};
+                proxy_redirect off;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Host $server_name;
+                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_http_version 1.1;
+                proxy_set_header   Upgrade $http_upgrade;
+                proxy_set_header   Connection "upgrade";
+            }
+            listen 80;
+        }
+        ```
+    - `sudo nginx -t`
+    - `sudo systemctl reload nginx`
+4. 設定 ssl
+    - `sudo certbot --nginx`
