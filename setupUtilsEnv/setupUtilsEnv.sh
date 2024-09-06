@@ -44,7 +44,7 @@ sudo systemctl start mosquitto
 sudo systemctl enable mosquitto
 sudo cp /var/www/deployMapEnv/setupUtilsEnv/mosquitto.conf /etc/mosquitto/mosquitto.conf # overwrite config of mosquitto
 sudo systemctl restart mosquitto
-sudo firewall-cmd --permanent --add-port=1883/tcp # open 1883 port to make others can access mosquitto server 
+sudo firewall-cmd --permanent --add-port=19883/tcp # open 19883 port to make others can access mosquitto server 
 sudo firewall-cmd --reload
 
 # redis
