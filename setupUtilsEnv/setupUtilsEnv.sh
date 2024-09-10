@@ -61,3 +61,7 @@ sudo systemctl start mariadb
 # install pip3 and relative python packages
 sudo yum -y install python3-pip
 sudo pip3 install kafka-python python-socketio python-socketio[client] python-daemon mysql-connector geopy redis
+
+# install Auto_Backup_DB
+sudo git clone https://github.com/tommygood/Auto_Backup_DB /var/www/deployMapEnv/Auto_Backup_DB
+echo "Make sure you have set config correctly in Auto_Backup_DB"
