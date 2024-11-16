@@ -5,6 +5,8 @@
         "tasks.max": 1,
         "mqtt.server.uri": "tcp://mqtt_ip:mqtt_port",
         "mqtt.topics": "organ_region.organ_abbre/room2",
+	"mqtt.username": "mqtt_ncnu_default_super_user#tg",
+	"mqtt.password": "mqtt_ncnu_default_super_password#tg",
         "kafka.topic": "organ_region.organ_abbre-room2",
         "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
         "confluent.topic.bootstrap.servers": "broker:29092",

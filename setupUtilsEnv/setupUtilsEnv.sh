@@ -40,6 +40,15 @@ sudo docker-compose -f /var/www/deployMapEnv/setupUtilsEnv/docker-compose.yml up
 # MQTT
 sudo yum install -y epel-release
 sudo yum install mosquitto -y
+# There have a bug in mosquitto under v2.0.3, that can not correctly input the password in command line with -b para.
+# Manual input password is needed in current architecture.
+# ref : https://github.com/eclipse/mosquitto/issues/1949
+sudo mosquitto_passwd -c /etc/mosquitto/passwd mqtt_ncnu_default_super_user#tg
+# change privilege to avoid issue that can not start mosquitto server
+# ref : https://github.com/eclipse/mosquitto/issues/1603
+sudo chmod 700 /etc/mosquitto/passwd
+sudo chown mosquitto /etc/mosquitto/passwd
+sudo chgrp mosquitto /etc/mosquitto/passwd
 sudo systemctl start mosquitto
 sudo systemctl enable mosquitto
 sudo cp /var/www/deployMapEnv/setupUtilsEnv/mosquitto.conf /etc/mosquitto/mosquitto.conf # overwrite config of mosquitto
