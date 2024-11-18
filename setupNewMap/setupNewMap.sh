@@ -78,7 +78,7 @@ rm temp_schema.sql
 # activate map site with nodejs
 echo -e "\nactivate map site with nodejs"
 cd $repo_path
-sudo pm2 start npm --name "${organ_region}_${organ_abbre}" -i 1 -- start # start with cluster mode and with one app
+sudo pm2 start npm --name "${organ_region}_${organ_abbre}" -- start # start node repo with pm2 in fork mode.
 echo -e "\ncurrent pm2 list"
 sudo pm2 list
 
