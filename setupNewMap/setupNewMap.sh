@@ -9,7 +9,7 @@ read -p "enter the region of organization : " organ_region
 read -p "enter the port of map site : " map_port
 read -p "enter the latitude of map site : " organ_lat
 read -p "enter the longitude of map site : " organ_lon
-read -p "enter the ip of mosquitto server (make sure `connect` container in docker can use this ip connect to mosquitto server) : " mqtt_ip
+read -p "enter the ip of mosquitto server (make sure 'connect' container in docker can use this ip connect to mosquitto server) : " mqtt_ip
 read -p "enter the port of mosquitto server : " mqtt_port  
 
 # create /var/www to place repo if it does not exist"
