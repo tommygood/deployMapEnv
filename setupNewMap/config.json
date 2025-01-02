@@ -20,7 +20,7 @@
         "database" : "organ_region_organ_abbre"
     },
     "manage_system" : {
-        "host" : "https://organ_region.organ_abbre.cms.elderlymeal.com",
+        "host" : "https://organ_region.organ_abbre.cms.elderlymeal.org",
         "gps_url" : "/api/app/account/save_web_gps",
         "punch_url" : "/api/app/dp/save_web_punch"
     },
