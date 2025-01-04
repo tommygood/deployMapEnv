@@ -66,5 +66,5 @@
         ```
     - `sudo nginx -t`
     - `sudo systemctl reload nginx`
-4. 設定 ssl
+4. （若使用 AWS proxy 則不用）設定 ssl
     - `sudo certbot --nginx`
