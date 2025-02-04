@@ -70,12 +70,13 @@
     - `sudo certbot --nginx`
 5. 新增機構到 <a href='https://github.com/tommygood/Auto_Backup_DB'>Auto_Backup_DB</a> 的 `backup_db_config.json` 的 object `db` 的 `database`
   - `sudo vi /var/www/mqttElderyMeal/Auto_Backup_DB/backup_db_config.json`
-  ```=
-  "db" : {
+
+    ```=
+    "db" : {
         "ip" : "localhost",
         "port" : "3306",
         "user" : "im_meal",
         "password" : "meal@delivery",
         "database" : ["<機構英文地區_機構英文縮寫>"]
     },
-  ```
+    ```
